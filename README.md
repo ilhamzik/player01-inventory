@@ -23,3 +23,16 @@
 - Selanjutnya, pindah ke views.py dan buat function yang mewakilkan atribut-atribut pada models.py tadi agar bisa di return pada main.html nantinya untuk ditampilkan secara statis.
 - Setelah selesai dengan file dan isinya, kita bisa melakukan push ke repository github.
 - Saat github sudah menerima kiriman update file tadi, kita bisa melakukan deploy di adaptable dengan cara menghubungkan repository github kita.
+
+### pertanyaan nomor 2 - Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
+<img src="/Assets//bagan.jpg">
+
+### pertanyaan nomor 3 - Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
+Virtual environment membantu kita dalam mengisolasi suatu project dan membuat depedencies yang kita pakai untuk project tersebut tidak tercampur dengan project lain (mungkin terjadi). Sebenarnya masih bisa membuat aplikasi web basis Django tanpa virtual environment. tetapi, akan beresiko karena project tak terisolasi.
+
+### pertanyaan nomor 4 - Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
+- MVC atau Model-View-Controller merupakan arsitektur yang membagi tiga komponennya menjadi model, view, dan controller.    
+- MVT atau Model-View-Template merupakan arsitektur yang memisahkan komponen utama dari sebuah aplikasi.
+- MVVM atau Model-View-ViewModel merupakan arsitektur yang memisahkan antara logika dan model melalui ViewModel.
+
+Perbedaan mencolok pada ketiga aplikasi tersebut adalah kegunaan dan fokus kerjanya. MVC lebih terfokus pada pengendalian alur kerja aplikasi, MVT menggunakan sebuah template untuk menggabungkan data dan tampilan, dan MVVM lebih fokus terhadap pemisahan antara tampilan, logika, dan data.
