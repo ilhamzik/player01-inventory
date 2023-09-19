@@ -55,3 +55,15 @@ urlpatterns = [
     path('json/int:id/', views.show_json_by_id, name='show_json_by_id'),
     # ...
 ]
+
+Selanjutnya, inilah hasil screenshot saya pada postman
+-html
+<img src="/Assets//html.jpg">
+-xml
+<img src="/Assets//xml.jpg">
+-xml by id
+<img src="/Assets//xml by id.jpg">
+-json
+<img src="/Assets//json.jpg">
+-json by id
+<img src="/Assets//json by id.jpg">
