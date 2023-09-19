@@ -1,31 +1,66 @@
-<head>
-    <title>{{ app }}</title>
-</head>
-<body>
-    <table border = 1>
+{% extends 'base.html' %}
+
+{% block content %}
+    <head>
+        <title>{{ app }}</title>
+    </head>
+    <body>
+        <table border = 1>
+            <tr>
+                <td>
+                    App Name
+                </td>
+                <td>
+                    {{ app }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td>
+                    {{ name }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Class
+                </td>
+                <td>
+                    {{ class }}
+                </td>
+            </tr>
+        </table>
+    </body>
+
+    <table>
         <tr>
-            <td>
-                App Name
-            </td>
-            <td>
-                {{ app }}
-            </td>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Category</th>
         </tr>
-        <tr>
-            <td>
-                Name
-            </td>
-            <td>
-                {{ name }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Class
-            </td>
-            <td>
-                {{ class }}
-            </td>
-        </tr>
+    
+        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+    
+        {% for product in products %}
+            <tr>
+                <td>{{product.name}}</td>
+                <td>{{product.amount}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.category}}</td>
+            </tr>
+        {% endfor %}
     </table>
-</body>
+    
+    <br />
+    
+    <a href="{% url 'main:create_product' %}">
+        <button>
+            Add New Product
+        </button>
+    </a>
+    
+{% endblock content %}

@@ -2,7 +2,7 @@ from django.db import models
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
-    amount = models.IntegerField()
+    amount = models.IntegerField(default=0)
     price = models.IntegerField()
     description = models.TextField()
-    category = models.TextField()
+    category = models.TextField(default='')
