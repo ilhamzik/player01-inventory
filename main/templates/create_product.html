@@ -1,8 +1,46 @@
 {% extends 'base.html' %} 
 
 {% block content %}
-<h1>Add New Product</h1>
+<h1>Add New Item</h1>
+<style>
+    body {
+        background-color: black;
+        color: orange;
+    }
+    
+    .center-cell {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
 
+    .special-paragraph {
+        margin-top: 45px;
+        margin-bottom: 10px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th {
+        border: 1px solid #c9582b;
+        text-align: center;
+        padding: 8px;
+    }
+
+    td {
+        border: 1px solid #d3852b;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #0a0707;
+    }
+</style>
 <form method="POST">
     {% csrf_token %}
     <table>
@@ -10,7 +48,7 @@
         <tr>
             <td></td>
             <td>
-                <input type="submit" value="Add Product"/>
+                <input type="submit" value="Add Item"/>
             </td>
         </tr>
     </table>

@@ -1,37 +1,48 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <head>
-        <title>{{ app }}</title>
-    </head>
-    <body>
-        <table border = 1>
-            <tr>
-                <td>
-                    App Name
-                </td>
-                <td>
-                    {{ app }}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Name
-                </td>
-                <td>
-                    {{ name }}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Class
-                </td>
-                <td>
-                    {{ class }}
-                </td>
-            </tr>
-        </table>
-    </body>
+    <h1>P01</h1>
+    <h5>Inventory of {{ name }}</h5>
+
+    <style>
+        body {
+            background-color: black;
+            color: orange;
+        }
+        
+        .center-cell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .special-paragraph {
+            margin-top: 45px;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+    
+        th {
+            border: 1px solid #c9582b;
+            text-align: center;
+            padding: 8px;
+        }
+
+        td {
+            border: 1px solid #d3852b;
+            text-align: left;
+            padding: 8px;
+        }
+    
+        tr:nth-child(even) {
+            background-color: #0a0707;
+        }
+    </style>
 
     <table>
         <tr>
@@ -41,26 +52,48 @@
             <th>Description</th>
             <th>Category</th>
         </tr>
-    
-        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-    
-        {% for product in products %}
+
+        {% comment %} Berikut cara memperlihatkan data item di bawah baris ini {% endcomment %}
+
+        {% for item in items %}
             <tr>
-                <td>{{product.name}}</td>
-                <td>{{product.amount}}</td>
-                <td>{{product.price}}</td>
-                <td>{{product.description}}</td>
-                <td>{{product.category}}</td>
+                <td>{{ item.name }}<form method="POST" action="{% url 'main:delete_item' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="item_id" value="{{ item.id }}">
+                        <button type ="submit">Delete</button>
+                    </form>
+                </td>
+                <td>{{ item.amount }} <form method="POST" action="{% url 'main:add_item_amount' item.id %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="item_id" value="{{ item.id }}">
+                        <button type ="submit" name="amount" value="add">+</button>
+                    </form><form method="POST" action="{% url 'main:reduce_item_amount' item.id %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="item_id" value="{{ item.id }}">
+                        <button type ="submit" name="amount" value="reduce">-</button>
+                    </form>
+                </td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.category }}</td>
             </tr>
         {% endfor %}
     </table>
-    
+
     <br />
     
     <a href="{% url 'main:create_product' %}">
         <button>
-            Add New Product
+            Add New Item
         </button>
     </a>
+
+    <a href="{% url 'main:logout' %}">
+        <button>
+            Logout
+        </button>
+    </a>
+
+    <h5>Last login: {{ last_login }}</h5>
     
 {% endblock content %}
