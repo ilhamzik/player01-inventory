@@ -167,3 +167,36 @@ saya sedikit mengubah fungsi itu untuk memungkinkan saya dalam menghubungkan use
 - tidak lupa juga menambahkannya pada main.html untuk ditampilkan.
 
 </details>
+
+<details>
+<summary><b>Tugas 4</b></summary>
+
+1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+- Elemen Selector
+Manfaat: Selector ini digunakan untuk memilih semua elemen dengan tipe tertentu pada halaman web. Misalnya, jika kita menggunakan p sebagai selector, maka semua elemen <p> pada halaman web akan dipilih. 
+kapan menggunakannya: Saat ingin menggunakan gaya yang sama ke semua elemen dengan jenis tertentu.
+- Class Selector
+Manfaat: Selector ini memungkinkan kita memilih elemen dengan nama kelas tertentu. Class selectors berguna ketika kita ingin menerapkan gaya tertentu pada beberapa elemen yang memiliki kelas yang sama.
+Kapan menggunakannya: Saat ingin memberikan gaya yang sama pada beberapa elemen dengan karakteristik atau fungsi yang serupa, tanpa memperhatikan tipe elemennya.
+- Type Selector
+Manfaat: digunakan untuk menargetkan elemen HTML berdasarkan nama tag-nya.
+Kapan menggunakannya: ketika kita ingin menerapkan gaya pada semua instansi elemen HTML tertentu di halaman. 
+
+2. Jelaskan HTML5 Tag yang kamu ketahui.
+- header: Digunakan untuk mendefinisikan bagian kepala dokumen atau bagian atas halaman web.
+- nav: Menunjukkan bagian dari dokumen yang berisi tautan navigasi, seperti menu.
+- main: Menandai konten utama halaman yang unik dan tidak berulang. Hanya boleh ada satu elemen main dalam satu halaman.
+
+3. Jelaskan perbedaan antara margin dan padding.
+- Margin: Margin adalah ruang di luar batas elemen. Ini menciptakan jarak antara elemen tersebut dan elemen lain.
+- Padding: Padding adalah ruang di dalam batas elemen, antara batas elemen dan kontennya.
+Perbedaan utama adalah bahwa margin menciptakan ruang di luar elemen (di antara elemen tersebut dan elemen lainnya), sedangkan padding menciptakan ruang di dalam elemen (antara konten elemen dan batasnya). 
+
+4. Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+Tailwind CSS adalah framework CSS utility-first yang memberikan kendali tinggi kepada pengembang dalam desain tata letak. Dibandingkan dengan Bootstrap, Tailwind memungkinkan pengguna untuk membuat tampilan yang sangat disesuaikan dengan menggabungkan kelas-kelas utilitas yang spesifik. Tailwind cocok untuk proyek yang memerlukan kreativitas tinggi dan kebebasan desain. Di sisi lain, Bootstrap menyediakan komponen UI yang sudah dirancang dengan baik, membuatnya cpcok untuk proyek dengan batasan waktu dan membutuhkan desain responsif yang cepat dan mudah tanpa banyak konfigurasi. Penggunaan keduanya tergantung pada tingkat kontrol dan fleksibilitas yang diinginkan oleh pengembang dalam proyek mereka.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+Pertama-tama, saya mencari tau tentang bootstrap melalui link referensi pada naskah tutorial.
+Setelah itu, saya mencoba untuk melihat-lihat referensi website serta cara mereka membuat tampilan seperti itu.
+Lalu, saya modifikasi tampilan saya dengan modal riset yang sudah saya lakukan sedemikian rupa.
+</details>
