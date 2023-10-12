@@ -119,7 +119,7 @@ Selanjutnya, inilah hasil screenshot saya pada postman
 </details>
 
 <details>
-<summary><b>Tugas 3</b></summary>
+<summary><b>Tugas 4</b></summary>
 
 1. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
 - **Definisi:** Django UserCreationForm adalah formulir bawaan yang disediakan oleh Django untuk membuat formulir pendaftaran pengguna. Formulir ini mempermudah pengembang dalam menciptakan halaman pendaftaran pengguna yang meminta informasi seperti nama pengguna, kata sandi, dan alamat email. 
@@ -169,7 +169,7 @@ saya sedikit mengubah fungsi itu untuk memungkinkan saya dalam menghubungkan use
 </details>
 
 <details>
-<summary><b>Tugas 4</b></summary>
+<summary><b>Tugas 5</b></summary>
 
 1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
 - Elemen Selector
@@ -199,4 +199,30 @@ Tailwind CSS adalah framework CSS utility-first yang memberikan kendali tinggi k
 Pertama-tama, saya mencari tau tentang bootstrap melalui link referensi pada naskah tutorial.
 Setelah itu, saya mencoba untuk melihat-lihat referensi website serta cara mereka membuat tampilan seperti itu.
 Lalu, saya modifikasi tampilan saya dengan modal riset yang sudah saya lakukan sedemikian rupa.
+</details>
+
+<details>
+<summary><b>Tugas 6</b></summary>
+
+1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+Synchronous programming melibatkan eksekusi kode secara berurutan, satu per satu, dengan menunggu setiap operasi selesai sebelum melanjutkan ke operasi berikutnya. Sebaliknya, asynchronous programming memungkinkan beberapa operasi berjalan bersamaan tanpa menunggu operasi selesai, meningkatkan efisiensi dan responsivitas program terhadap input eksternal.
+
+2. Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+Paradigma event-driven programming mengartikan pendekatan di mana program merespons kejadian atau event yang terjadi, seperti klik mouse atau pengiriman data melalui AJAX. Program menantikan kejadian tersebut dan memberikan respons dengan menjalankan fungsi atau aksi yang sesuai.
+Contoh implementasinya dalam tugas ini adalah menggunakan event-driven untuk menanggapi klik tombol "Delete" pada item dalam aplikasi web. Ketika tombol "Delete" ditekan, program akan merespons event tersebut dengan menjalankan fungsi AJAX untuk menghapus item tanpa memuat ulang halaman secara keseluruhan.
+
+3. Jelaskan penerapan asynchronous programming pada AJAX.
+Asynchronous programming pada AJAX memungkinkan operasi jaringan berjalan tanpa menghentikan eksekusi program utama, meningkatkan responsivitas aplikasi dengan memungkinkannya melanjutkan tugas lainnya selama operasi jaringan berlangsung.
+
+4. Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+Fetch API adalah bagian dari standar web modern, lebih ringan, promise-based, dan direkomendasikan untuk aplikasi web modern. jQuery adalah pustaka populer dengan antarmuka yang mudah dan kompatibilitas browser yang baik. Pilihan tergantung pada kebutuhan proyek, dengan Fetch API disarankan untuk proyek-proyek baru karena kelebihannya dalam kecepatan dan responsivitas. Namun, jQuery tetap relevan untuk proyek dengan kebutuhan kompatibilitas tinggi terhadap browser lama.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+- Pertama-tama membuat fungsi get_item_json pada views.py untuk mengambil data dalam bentuk JSON. lalu membuat fungsi untuk menambahkan produk menggunakan AJAX dimulai dengan mengimport csrf_exempt dan membuat fungsi baru bernama add_item_ajax.
+- Nah, pada main.html kita ambil item dengan fetch API dengan menambahkan tag block script di akhir kode HTML dan membuat fungsi asynchronous getItems.
+- Membuat fungsi asynchronous refreshProducts() pada blok script untuk memunculkan cards menggunakan AJAX dan merefresh data dari item serta mengupdate informasi jumlah item yang tersimpan secara asynchronous.
+- lalu membuat fungsi pada bagian script untuk menambahkan Item (onclick).
+- Membuat fungsi untuk menghapus item menggunakan AJAX pada views.py bernama delete_item_ajax yang memiliki parameter berupa id dari item yang akan dihapus dan menambahkan fungsi deleteProduct(id) pada bagian script di main.html untuk menghapus item dengan AJAX
+- Menambahkan button pada cards untuk menghapus item menggunakan AJAX pada main.html dan menambahkan atribut onclick="deleteItem(${item.pk})" untuk memanggil fungsi deleteItem saat button di click.
+- terakhir, melakukan perintah collecstatic dengan melakukan mapping untuk output file static ke directory yang sesuai dengan memodifikasi bagian STATIC_URL dan STATIC_ROOT pada settings.py. lalu menjalankan perintah collectstatic pada terminal :
 </details>

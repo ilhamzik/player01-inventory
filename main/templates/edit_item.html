@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #0c0b0a;
+        color: rgb(183, 125, 58);
+    }
+
+    .navbar {
+        background-color: #151514;
+    }
+
+    .navbar a {
+        color: rgb(183, 125, 58);
+        margin: 0 15px;
+        text-decoration: none;
+    }
+
+    .card {
+        border: 1px solid #151514;
+        margin-top: 20px;
+        width: 600px; 
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        background-color: #f8b60f;
+    }
+
+    .card h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .card table {
+        width: 100%;
+    }
+
+    .card table tr td {
+        padding: 10px;
+    }
+
+    .card-header {
+        background-color: #b77d3a;
+        text-align: center;
+        color: #0c0b0a;
+    }
+
+    .card-body {
+        color: rgb(183, 125, 58);
+    }
+
+    .form-label {
+        color: rgb(183, 125, 58);
+    }
+
+    .form-control {
+        background-color: #fff;
+        color: rgb(183, 125, 58);
+        border: 1px solid #151514;
+        margin-bottom: 10px;
+    }
+
+    .btn-warning {
+        background-color: #b77d3a;
+        border: 1px solid #b77d3a;
+        width: 100%;
+    }
+
+    .card input[type="submit"] {
+        background-color: #000000;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .card input[type="submit"]:hover {
+        background-color: #f1a809;
+    }
+
+    .card textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #e3df18;
+        border-radius: 5px;
+    }
+</style>
+<nav class="navbar">
+    <a href="{% url 'main:show_main' %}">Home</a>
+    <a href="{% url 'main:logout' %}">Logout</a>
+</nav>
+
+<div class="card">
+    <h1>Edit Item</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Submit"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</div>
+{% endblock %}

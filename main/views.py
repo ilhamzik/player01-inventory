@@ -11,6 +11,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import datetime
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 
 @login_required(login_url='/login')
 def show_main(request):
@@ -25,7 +27,7 @@ def show_main(request):
     }
     return render(request, "main.html", context)
 
-def create_product(request):
+def create_item(request):
     form = ItemForm(request.POST or None)
 
     if form.is_valid() and request.method == "POST":
@@ -35,7 +37,7 @@ def create_product(request):
         return HttpResponseRedirect(reverse('main:show_main'))
 
     context = {'form': form}
-    return render(request, "create_product.html", context)
+    return render(request, "create_item.html", context)
 
 def show_xml(request):
     data = Item.objects.all()
@@ -114,12 +116,12 @@ def delete_item(request):
 
     return redirect('main:show_main')
 
-def edit_product(request, id):
-    # Get product berdasarkan ID
+def edit_item(request, id):
+    # Get item berdasarkan ID
     item = get_object_or_404(Item, pk=id)
     #Item = Item.objects.get(pk = id)
 
-    # Set product sebagai instance dari form
+    # Set item sebagai instance dari form
     form = ItemForm(request.POST or None, instance=item)
 
     if form.is_valid() and request.method == "POST":
@@ -128,14 +130,46 @@ def edit_product(request, id):
         return HttpResponseRedirect(reverse('main:show_main'))
 
     context = {'form': form}
-    return render(request, "edit_product.html", context)
+    return render(request, "edit_item.html", context)
 
-def delete_product(request, id):
+def delete_item(request, id):
     # Get data berdasarkan ID
     item = Item.objects.get(pk = id)
     # Hapus data
     item.delete()
     # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('main:show_main'))
+
+def get_item_json(request):
+    item_item = Item.objects.all()
+    return HttpResponse(serializers.serialize('json', item_item))
+
+@csrf_exempt
+def add_item_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        amount = request.POST.get("amount")
+        price = request.POST.get("price")
+        description = request.POST.get("description")
+        category = request.POST.get("category")
+        user = request.user
+
+        new_item = Item(name=name, amount=amount, price=price, description=description, category=category, user=user)
+        new_item.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
+
+@csrf_exempt
+def delete_item_ajax(request):
+    try:
+        item = Item.objects.get(pk=item_id)
+        item.delete()
+        return JsonResponse({'message': 'Item berhasil dihapus.'})
+    except Item.DoesNotExist:
+        return JsonResponse({'error': 'Item tidak ditemukan.'}, status=404)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
 
 # Create your views here.
